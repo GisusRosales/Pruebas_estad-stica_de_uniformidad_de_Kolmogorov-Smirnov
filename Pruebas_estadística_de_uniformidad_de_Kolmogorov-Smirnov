@@ -1,0 +1,22 @@
+#Alumno: Jesus Armando Rosales Martinez
+#Matricula: 23040166
+#Grupo: 4Y
+
+import numpy as np
+from scipy import stats
+
+# Genera los 100 números aleatorios que van entre 0 y 1
+numeros_aleatorios = np.random.rand(100)
+
+# Realiza la prueba de Kolmogorov-Smirnov para comparar con una distribución uniforme
+ks_stat, p_value = stats.kstest(numeros_aleatorios, 'uniform')
+
+# Muestra los resultados
+print(f"Estadístico de Kolmogorov-Smirnov: {ks_stat}")
+print(f"Valor p: {p_value}")
+
+# Evalua si los datos siguen una distribución uniforme
+if p_value > 0.05:
+    print("No se puede rechazar la hipótesis nula: Los datos parecen seguir una distribución uniforme.")
+else:
+    print("Se rechaza la hipótesis nula: Los datos no parecen seguir una distribución uniforme.")
